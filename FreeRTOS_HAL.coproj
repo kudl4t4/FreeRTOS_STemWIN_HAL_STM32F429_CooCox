@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.7" name="FreeRTOS_HAL">
+  <Target name="FreeRTOS_HAL" isCurrent="1">
+    <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Option name="SupportCPlusplus" value="0"/>
+        <Option name="FPU" value="2"/>
+        <Includepaths>
+          <Includepath path="."/>
+          <Includepath path="cmsis"/>
+          <Includepath path="drivers"/>
+          <Includepath path="main"/>
+          <Includepath path="middlewares"/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="STM32F4XX"/>
+          <Define name="STM32F429xx"/>
+          <Define name="__FPU_USED"/>
+          <Define name="USE_HAL_DRIVER"/>
+          <Define name="__ASSEMBLY__"/>
+          <Define name="STM32F429_439xx"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="0"/>
+        <Option name="nostartfiles" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Semihosting"/>
+        <LinkedLibraries>
+          <Libset dir="middlewares\stemwin\lib\" libs="stemwin524b_cm4_os_gcc"/>
+          <Libset dir="middlewares\stemwin\lib\" libs="stemwin524b_cm4_os_gcc_ot"/>
+        </LinkedLibraries>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x08000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00020000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
+        </MemoryAreas>
+        <LocateLinkFile path="./stm32f429zi_flash.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="FreeRTOS_HAL"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ST-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2009"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./">
+    <Component id="30" name="C Library" path="" type="2"/>
+    <Component id="31" name="Retarget printf" path="" type="2"/>
+    <Component id="33" name="Semihosting" path="" type="2"/>
+  </Components>
+  <Files>
+    <File name="Middlewares/STemWin/inc" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/MULTIPAGE_Private.h" path="Middlewares/STemWin/inc/MULTIPAGE_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/WM_GUI.h" path="Middlewares/STemWin/inc/WM_GUI.h" type="1"/>
+    <File name="Main/Inc/sdram.h" path="Main/Inc/sdram.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/croutine.h" path="Middlewares/FreeRTOS/Source/include/croutine.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/portable.h" path="Middlewares/FreeRTOS/Source/include/portable.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f417xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f417xx.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h" type="1"/>
+    <File name="Drivers/BSP/Utilities/Fonts/fonts.h" path="Drivers/BSP/Utilities/Fonts/fonts.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_eth.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_eth.h" type="1"/>
+    <File name="CMSIS/Include/core_cmInstr.h" path="CMSIS/Include/core_cmInstr.h" type="1"/>
+    <File name="Main/Inc/LCDConf.h" path="Main/Inc/LCDConf.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Source/gcc" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h" type="1"/>
+    <File name="CMSIS/Include/core_cmFunc.h" path="CMSIS/Include/core_cmFunc.h" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/DROPDOWN_Private.h" path="Middlewares/STemWin/inc/DROPDOWN_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nand.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nand.c" type="1"/>
+    <File name="CMSIS/Include/core_cm0plus.h" path="CMSIS/Include/core_cm0plus.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_SIM_Win32.h" path="Middlewares/STemWin/inc/GUI_SIM_Win32.h" type="1"/>
+    <File name="CMSIS/Device" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/LISTWHEEL.h" path="Middlewares/STemWin/inc/LISTWHEEL.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma2d.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma2d.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_24.h" path="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_24.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/WIDGET.h" path="Middlewares/STemWin/inc/WIDGET.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_ltdc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_ltdc.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/MENU.h" path="Middlewares/STemWin/inc/MENU.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/WM.h" path="Middlewares/STemWin/inc/WM.h" type="1"/>
+    <File name="Drivers/BSP/Components/ili9341/ili9341.c" path="Drivers/BSP/Components/ili9341/ili9341.c" type="1"/>
+    <File name="CMSIS/Include/core_cm4.h" path="CMSIS/Include/core_cm4.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_smartcard.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_smartcard.c" type="1"/>
+    <File name="Drivers/BSP/Components/Common/lcd.h" path="Drivers/BSP/Components/Common/lcd.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_wwdg.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_wwdg.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/CHECKBOX_Private.h" path="Middlewares/STemWin/inc/CHECKBOX_Private.h" type="1"/>
+    <File name="stdio/printf.c" path="stdio/printf.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sram.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sram.h" type="1"/>
+    <File name="Middlewares" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/CHOOSEFILE.h" path="Middlewares/STemWin/inc/CHOOSEFILE.h" type="1"/>
+    <File name="Main/Src/GUIConf.c" path="Main/Src/GUIConf.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c" type="1"/>
+    <File name="stdio" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/SPINBOX.h" path="Middlewares/STemWin/inc/SPINBOX.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_FlexColor.h" path="Middlewares/STemWin/inc/GUIDRV_FlexColor.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/BUTTON.h" path="Middlewares/STemWin/inc/BUTTON.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fmc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fmc.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/CHOOSECOLOR.h" path="Middlewares/STemWin/inc/CHOOSECOLOR.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/ICONVIEW_Private.h" path="Middlewares/STemWin/inc/ICONVIEW_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/task.h" path="Middlewares/FreeRTOS/Source/include/task.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_NoOpt_1_8.h" path="Middlewares/STemWin/inc/GUIDRV_NoOpt_1_8.h" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_ts.c" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_ts.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM4F" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/RADIO_Private.h" path="Middlewares/STemWin/inc/RADIO_Private.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/SCROLLBAR.h" path="Middlewares/STemWin/inc/SCROLLBAR.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/DROPDOWN.h" path="Middlewares/STemWin/inc/DROPDOWN.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_JPEG_Private.h" path="Middlewares/STemWin/inc/GUI_JPEG_Private.h" type="1"/>
+    <File name="CMSIS/Include" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/EDIT.h" path="Middlewares/STemWin/inc/EDIT.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable" path="" type="2"/>
+    <File name="Middlewares/FreeRTOS/Source/croutine.c" path="Middlewares/FreeRTOS/Source/croutine.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GRAPH_Private.h" path="Middlewares/STemWin/inc/GRAPH_Private.h" type="1"/>
+    <File name="Drivers/BSP/Components/Common/tsensor.h" path="Drivers/BSP/Components/Common/tsensor.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_ARRAY.h" path="Middlewares/STemWin/inc/GUI_ARRAY.h" type="1"/>
+    <File name="CMSIS/Include/core_sc300.h" path="CMSIS/Include/core_sc300.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c" type="1"/>
+    <File name="Main/Inc/stm32f4xx_it.h" path="Main/Inc/stm32f4xx_it.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f437xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f437xx.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/FreeRTOS.h" path="Middlewares/FreeRTOS/Source/include/FreeRTOS.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI.h" path="Middlewares/STemWin/inc/GUI.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_ConfDefaults.h" path="Middlewares/STemWin/inc/GUI_ConfDefaults.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LISTWHEEL_Private.h" path="Middlewares/STemWin/inc/LISTWHEEL_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/PROGBAR_Private.h" path="Middlewares/STemWin/inc/PROGBAR_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LCD.h" path="Middlewares/STemWin/inc/LCD.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/SPINBOX_Private.h" path="Middlewares/STemWin/inc/SPINBOX_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/WindowDLG.c" path="Middlewares/STemWin/WindowDLG.c" type="1"/>
+    <File name="CMSIS/RTOS" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_8.h" path="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_8.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/MULTIEDIT.h" path="Middlewares/STemWin/inc/MULTIEDIT.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_SPRITE_Private.h" path="Middlewares/STemWin/inc/GUI_SPRITE_Private.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/MemMang/heap_1.c" path="Middlewares/FreeRTOS/Source/portable/MemMang/heap_1.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h" type="1"/>
+    <File name="Main/Inc" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUI_Debug.h" path="Middlewares/STemWin/inc/GUI_Debug.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c" type="1"/>
+    <File name="Middlewares/STemWin/OS" path="" type="2"/>
+    <File name="CMSIS/Include/arm_const_structs.h" path="CMSIS/Include/arm_const_structs.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h" type="1"/>
+    <File name="CMSIS/Include/core_cm3.h" path="CMSIS/Include/core_cm3.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c" type="1"/>
+    <File name="Main" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Dist.h" path="Middlewares/STemWin/inc/GUIDRV_Dist.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/timers.h" path="Middlewares/FreeRTOS/Source/include/timers.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/CALENDAR.h" path="Middlewares/STemWin/inc/CALENDAR.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/SLIDER_Private.h" path="Middlewares/STemWin/inc/SLIDER_Private.h" type="1"/>
+    <File name="Drivers/BSP/Components/ili9341" path="" type="2"/>
+    <File name="CMSIS/Include/arm_common_tables.h" path="CMSIS/Include/arm_common_tables.h" type="1"/>
+    <File name="Main/Inc/gpio.h" path="Main/Inc/gpio.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/TEXT.h" path="Middlewares/STemWin/inc/TEXT.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/DIALOG_Intern.h" path="Middlewares/STemWin/inc/DIALOG_Intern.h" type="1"/>
+    <File name="Main/Src/gpio.c" path="Main/Src/gpio.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source" path="" type="2"/>
+    <File name="Middlewares/FreeRTOS/Source/tasks.c" path="Middlewares/FreeRTOS/Source/tasks.c" type="1"/>
+    <File name="Drivers/BSP/Components/stmpe811/stmpe811.c" path="Drivers/BSP/Components/stmpe811/stmpe811.c" type="1"/>
+    <File name="Drivers/BSP/Components/ili9341/ili9341.h" path="Drivers/BSP/Components/ili9341/ili9341.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/TREEVIEW_Private.h" path="Middlewares/STemWin/inc/TREEVIEW_Private.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/semphr.h" path="Middlewares/FreeRTOS/Source/include/semphr.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/Global.h" path="Middlewares/STemWin/inc/Global.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/IMAGE.h" path="Middlewares/STemWin/inc/IMAGE.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/projdefs.h" path="Middlewares/FreeRTOS/Source/include/projdefs.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_TemplateI.h" path="Middlewares/STemWin/inc/GUIDRV_TemplateI.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" type="1"/>
+    <File name="CMSIS/Device/ST" path="" type="2"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Source/gcc/startup_stm32f429xx.s" path="CMSIS/Device/ST/STM32F4xx/Source/Templates/gcc/startup_stm32f429xx.s" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/DIALOG.h" path="Middlewares/STemWin/inc/DIALOG.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GRAPH.h" path="Middlewares/STemWin/inc/GRAPH.h" type="1"/>
+    <File name="Drivers/BSP/Components/Common/io.h" path="Drivers/BSP/Components/Common/io.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_SetOrientationCX.h" path="Middlewares/STemWin/inc/GUI_SetOrientationCX.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/FRAMEWIN_Private.h" path="Middlewares/STemWin/inc/FRAMEWIN_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash_ex.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h" type="1"/>
+    <File name="Drivers/BSP/Components/stmpe811/stmpe811.h" path="Drivers/BSP/Components/stmpe811/stmpe811.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_VNC.h" path="Middlewares/STemWin/inc/GUI_VNC.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LCD_Private.h" path="Middlewares/STemWin/inc/LCD_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LCD_Protected.h" path="Middlewares/STemWin/inc/LCD_Protected.h" type="1"/>
+    <File name="Main/Src/main.c" path="Main/Src/main.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/queue.h" path="Middlewares/FreeRTOS/Source/include/queue.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin.h" path="Middlewares/STemWin/inc/GUIDRV_Lin.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h" type="1"/>
+    <File name="Drivers/BSP/Utilities/Fonts" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/CHECKBOX.h" path="Middlewares/STemWin/inc/CHECKBOX.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nor.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nor.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/BUTTON_Private.h" path="Middlewares/STemWin/inc/BUTTON_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_FontIntern.h" path="Middlewares/STemWin/inc/GUI_FontIntern.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" type="1"/>
+    <File name="Drivers/BSP/Components/Common" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_wwdg.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_wwdg.c" type="1"/>
+    <File name="Main/Inc/FreeRTOSConfig.h" path="Main/Inc/FreeRTOSConfig.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_Private.h" path="Middlewares/STemWin/inc/GUI_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c" type="1"/>
+    <File name="Drivers/BSP/Components/stmpe811" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/TEXT_Private.h" path="Middlewares/STemWin/inc/TEXT_Private.h" type="1"/>
+    <File name="CMSIS/RTOS/cmsis_os.h" path="CMSIS/RTOS/cmsis_os.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" type="1"/>
+    <File name="CMSIS" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp_ex.h" type="1"/>
+    <File name="Main/Src/stm32f4xx_it.c" path="Main/Src/stm32f4xx_it.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f415xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f415xx.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_32.h" path="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_32.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/SCROLLBAR_Private.h" path="Middlewares/STemWin/inc/SCROLLBAR_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/WINDOW_Private.h" path="Middlewares/STemWin/inc/WINDOW_Private.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/timers.c" path="Middlewares/FreeRTOS/Source/timers.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/MENU_Private.h" path="Middlewares/STemWin/inc/MENU_Private.h" type="1"/>
+    <File name="syscalls/syscalls.c" path="syscalls/syscalls.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h" type="1"/>
+    <File name="Drivers/BSP/Components/Common/ts.h" path="Drivers/BSP/Components/Common/ts.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Source" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/KNOB_Private.h" path="Middlewares/STemWin/inc/KNOB_Private.h" type="1"/>
+    <File name="CMSIS/Include/core_cm4_simd.h" path="CMSIS/Include/core_cm4_simd.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_FlexColor_Private.h" path="Middlewares/STemWin/inc/GUIDRV_FlexColor_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pccard.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pccard.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/HEADER.h" path="Middlewares/STemWin/inc/HEADER.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_16.h" path="Middlewares/STemWin/inc/GUIDRV_Lin_Opt_16.h" type="1"/>
+    <File name="Main/Inc/main.h" path="Main/Inc/main.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_crc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_crc.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/MULTIPAGE.h" path="Middlewares/STemWin/inc/MULTIPAGE.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_ltdc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_ltdc.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_irda.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_irda.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h" type="1"/>
+    <File name="Main/Src/sdram.c" path="Main/Src/sdram.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" type="1"/>
+    <File name="Middlewares/STemWin/OS/GUI_X_FreeRTOS.c" path="Middlewares/STemWin/OS/GUI_X_FreeRTOS.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nand.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nand.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_DCache.h" path="Middlewares/STemWin/inc/GUIDRV_DCache.h" type="1"/>
+    <File name="Main/Src" path="" type="2"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/MemMang" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pccard.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pccard.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c" type="1"/>
+    <File name="Drivers/BSP/Components" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/LISTVIEW_Private.h" path="Middlewares/STemWin/inc/LISTVIEW_Private.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/event_groups.h" path="Middlewares/FreeRTOS/Source/include/event_groups.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_HOOK.h" path="Middlewares/STemWin/inc/GUI_HOOK.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/FRAMEWIN.h" path="Middlewares/STemWin/inc/FRAMEWIN.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/EDIT_Private.h" path="Middlewares/STemWin/inc/EDIT_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/event_groups.c" path="Middlewares/FreeRTOS/Source/event_groups.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Lin_Private.h" path="Middlewares/STemWin/inc/GUIDRV_Lin_Private.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h" path="Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c" path="Middlewares/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f439xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f439xx.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/IMAGE_Private.h" path="Middlewares/STemWin/inc/IMAGE_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h" type="1"/>
+    <File name="Middlewares/STemWin" path="" type="2"/>
+    <File name="Middlewares/FreeRTOS/Source/include/list.h" path="Middlewares/FreeRTOS/Source/include/list.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h" path="CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h" type="1"/>
+    <File name="Drivers" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/RADIO.h" path="Middlewares/STemWin/inc/RADIO.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sai.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sai.c" type="1"/>
+    <File name="semihosting/sh_cmd.s" path="semihosting/sh_cmd.s" type="1"/>
+    <File name="Middlewares/STemWin/inc/LCD_ConfDefaults.h" path="Middlewares/STemWin/inc/LCD_ConfDefaults.h" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.c" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_io.c" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_io.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nor.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nor.c" type="1"/>
+    <File name="semihosting/semihosting.c" path="semihosting/semihosting.c" type="1"/>
+    <File name="CMSIS/Include/arm_math.h" path="CMSIS/Include/arm_math.h" type="1"/>
+    <File name="Main/Inc/GUIConf.h" path="Main/Inc/GUIConf.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash.c" type="1"/>
+    <File name="CMSIS/Include/core_cm0.h" path="CMSIS/Include/core_cm0.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LISTBOX_Private.h" path="Middlewares/STemWin/inc/LISTBOX_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sd.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sd.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fsmc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fsmc.h" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_ts.h" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_ts.h" type="1"/>
+    <File name="Middlewares/FreeRTOS" path="" type="2"/>
+    <File name="Drivers/BSP/Utilities" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/queue.c" path="Middlewares/FreeRTOS/Source/queue.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/WM_Intern.h" path="Middlewares/STemWin/inc/WM_Intern.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/TREEVIEW.h" path="Middlewares/STemWin/inc/TREEVIEW.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/ICONVIEW.h" path="Middlewares/STemWin/inc/ICONVIEW.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Template.h" path="Middlewares/STemWin/inc/GUIDRV_Template.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_GIF_Private.h" path="Middlewares/STemWin/inc/GUI_GIF_Private.h" type="1"/>
+    <File name="Main/Inc/stm32f4xx_hal_conf.h" path="Main/Inc/stm32f4xx_hal_conf.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/PROGBAR.h" path="Middlewares/STemWin/inc/PROGBAR.h" type="1"/>
+    <File name="Drivers/BSP" path="" type="2"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_Generic.h" path="Middlewares/STemWin/inc/GUIDRV_Generic.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h" path="CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_Version.h" path="Middlewares/STemWin/inc/GUI_Version.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Include" path="" type="2"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h" type="1"/>
+    <File name="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_io.h" path="Drivers/BSP/STM32F429I-Discovery/stm32f429i_discovery_io.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_ARRAY_Private.h" path="Middlewares/STemWin/inc/GUI_ARRAY_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/LISTVIEW.h" path="Middlewares/STemWin/inc/LISTVIEW.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash_ex.c" type="1"/>
+    <File name="semihosting" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_DCache_Private.h" path="Middlewares/STemWin/inc/GUIDRV_DCache_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/SLIDER.h" path="Middlewares/STemWin/inc/SLIDER.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/MESSAGEBOX.h" path="Middlewares/STemWin/inc/MESSAGEBOX.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/list.c" path="Middlewares/FreeRTOS/Source/list.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUIDRV_TemplateI_Private.h" path="Middlewares/STemWin/inc/GUIDRV_TemplateI_Private.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_smartcard.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_smartcard.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_conf_template.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_conf_template.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LISTBOX.h" path="Middlewares/STemWin/inc/LISTBOX.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/LCD_SIM.h" path="Middlewares/STemWin/inc/LCD_SIM.h" type="1"/>
+    <File name="syscalls" path="" type="2"/>
+    <File name="Middlewares/STemWin/inc/GUI_Type.h" path="Middlewares/STemWin/inc/GUI_Type.h" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/StackMacros.h" path="Middlewares/FreeRTOS/Source/include/StackMacros.h" type="1"/>
+    <File name="CMSIS/Include/core_sc000.h" path="CMSIS/Include/core_sc000.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_BMP_Private.h" path="Middlewares/STemWin/inc/GUI_BMP_Private.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/HEADER_Private.h" path="Middlewares/STemWin/inc/HEADER_Private.h" type="1"/>
+    <File name="CMSIS/Device/ST/STM32F4xx/Source/system_stm32f4xx.c" path="CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/include/mpu_wrappers.h" path="Middlewares/FreeRTOS/Source/include/mpu_wrappers.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/GUI_SetOrientation.h" path="Middlewares/STemWin/inc/GUI_SetOrientation.h" type="1"/>
+    <File name="semihosting/semihosting.h" path="semihosting/semihosting.h" type="1"/>
+    <File name="Main/Src/LCDConf_stm32f429i_disco_MB1075.c" path="Main/Src/LCDConf_stm32f429i_disco_MB1075.c" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h" type="1"/>
+    <File name="Middlewares/STemWin/inc/KNOB.h" path="Middlewares/STemWin/inc/KNOB.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h" path="Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h" type="1"/>
+    <File name="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sdram.c" path="Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sdram.c" type="1"/>
+    <File name="Middlewares/FreeRTOS/Source/portable/GCC" path="" type="2"/>
+  </Files>
+</Project>
