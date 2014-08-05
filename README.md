@@ -1,7 +1,7 @@
 FreeRTOS_STemWIN_HAL_STM32F429_CooCox
 =====================================
 
-This is CooCox project for FreeRTOS with STemWIN using HAL drivers. 
+This is CooCox project for STM32F429 Discovery board with FreeRTOS & STemWIN using HAL drivers. 
 
 =====================================
 
